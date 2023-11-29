@@ -113,7 +113,7 @@ class P2P{
                 this.host();
             });
         } else {
-            this.connect(id);
+            this.host();
         }
     }
     connectToServer(id){
