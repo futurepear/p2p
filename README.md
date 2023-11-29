@@ -1,6 +1,7 @@
 # P2P.js
 Extremely simple P2P library built on PeerJS.
-Include this script: <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script> 
+Include this script: 
+```<script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script> ```
 
 # Documentation
 
