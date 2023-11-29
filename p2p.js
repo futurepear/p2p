@@ -108,9 +108,13 @@ class P2P{
         }
     }
     hostServer(){
-        this.on("_open", () => {
-            this.host();
-        });
+        if(!this.open){
+            this.on("_open", () => {
+                this.host();
+            });
+        } else {
+            this.connect(id);
+        }
     }
     connectToServer(id){
         if(!this.open){
