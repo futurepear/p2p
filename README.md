@@ -14,7 +14,7 @@ Handles connections and data transfer. It is event based.
 
 Create a P2P instance:
 
-```var p2p = new P2P;```
+```var p2p = new P2P();```
 
 #### p2p.prototype.hostServer()
 The p2p instance will act as a server that can receive connections.
