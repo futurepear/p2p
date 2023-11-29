@@ -24,7 +24,6 @@ class PeerClient{
         });
     }
 }
-
 class P2P{
     constructor(){
         this.id = null;
@@ -114,8 +113,12 @@ class P2P{
         });
     }
     connectToServer(id){
-        this.on("_open", () => {
+        if(!this.open){
+            this.on("_open", () => {
+                this.connect(id);
+            });
+        } else {
             this.connect(id);
-        });
+        }
     }
 }
