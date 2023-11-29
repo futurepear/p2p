@@ -75,3 +75,5 @@ Returns the ID of the client
 #### PeerClient.prototype.emit(id, data)
 Invoke an event to the other side of the connection with any string id and any data. Exactly the same as P2P.prototype.emit
 
+#### PeerClient.prototype.on(id, callback)
+Attach a callback to an event. When the event happens, it will trigger the callback function. id is a string and callback is a function.
