@@ -1,5 +1,3 @@
-alert("hi");
-
 class PeerClient{
     constructor(conn){
         this.conn = conn;
