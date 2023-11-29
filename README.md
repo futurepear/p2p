@@ -19,8 +19,17 @@ Create a P2P instance:
 #### p2p.prototype.hostServer()
 The p2p instance will act as a server that can receive connections.
 
+```
+var p2p = new P2P();
+p2p.hostServer();
+```
+
 #### p2p.prototype.connectToServer(id)
 The p2p instance will act as a client and can connect to a server using its ID.
+```
+var p2p = new P2P();
+p2p.connectToServer("id goes here");
+```
 
 #### P2P.prototype.on(id, callback)
 Attach a callback to an event. When the event happens, it will trigger the callback function. id is a string and callback is a function.
