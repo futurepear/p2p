@@ -51,7 +51,7 @@ class P2P{
 
         };
 
-        this.peer.on('connection', (conn) => { 
+        this.peer.on('connection', (conn) => {
             if(!this.isHost) return conn.close();
             this._setupClient(conn);
         });
@@ -82,11 +82,11 @@ class P2P{
     }
     connect(id){
         this.client = true;
-        const connection = this.peer.connect(id);
+        const conn = this.peer.connect(id);
         
-        this._events["connect"](connection);
+        this._events["connect"](conn);
         
-        this.remotePeer = connection;
+        this.remotePeer = conn;
 
         this.remotePeer.on("data", (data) => {
             let packet = JSON.parse(data);
@@ -115,6 +115,31 @@ class P2P{
         } else {
             this.host();
         }
+    }
+    async call(id){
+        let stream = await navigator.mediaDevices.getDisplayMedia({video: { mediaSource: "screen", cursor: "always" }});
+
+        // let video = document.getElementById("video");
+        // video.autoplay = true;
+        // video.controls = false;
+        // video.srcObject = stream;
+
+        let call = this.peer.call(id, stream);
+
+    }
+    async answer(){
+        this.peer.on("call", async (call) => {
+            alert("a call");
+            let stream = await navigator.mediaDevices.getDisplayMedia({video: { mediaSource: "screen", cursor: "always" }});
+            call.answer(stream);
+            call.on("stream", (stream2) => {
+                alert("streamin");
+                let video = document.getElementById("video");
+                video.autoplay = true;
+                video.controls = false;
+                video.srcObject = stream2;
+            });
+        });
     }
     connectToServer(id){
         if(!this.open){
